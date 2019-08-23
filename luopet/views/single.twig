@@ -1,0 +1,126 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+<div class="Tabela">
+	<div class="container">
+		<div class="topo">
+			<h2>{{ post.title }} {% if post.subtitulo %}<span class="texto">({{ post.subtitulo }})</span>{% endif %}</h2>
+			<p>Informações Nutricionais</p>
+
+			<a href="{{ site.url }}/{{ post.get_terms.0.taxonomy }}/{{ post.get_terms.0.slug }}" class="Button _produtos">Voltar para os Produtos</a>
+		</div>
+
+		<div class="Row _gutters">
+			<div class="col _col-4 _last imagem">
+				<img class="imagem_produto" src="{{ Image(post.imagem).src }}">
+			</div>
+			<div class="col _col-4">
+				<div class="tabela">
+					<p class="composicao"><strong>Composição Básica:<br></strong>{{ post.composicao_basica }}</p>
+					<table class="Table _bordered _enriquecimento">
+						<thead>
+							<tr>
+								<th colspan="9" class="_titulo-tabela">Enriquecimento por Quilograma (mín.)</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for key, tr in post.get_field('tabela_enriquecimento').body %}
+								<tr style="{% if key is even %}background-color:{{item.get_field('cor')}};{% endif %}">
+									{% for td in tr %}
+										<td>
+											{{ td.c }}
+										</td>
+									{% endfor %}
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div class="avisos">{{ post.get_field('avisos') }}</div>
+				</div>
+			</div>
+			<div class="col _col-4">
+				<div class="tabela-esquerda">
+					<table class="Table _bordered">
+						<thead>
+							<tr>
+								<th colspan="2" class="_titulo-tabela">Níveis de Garantia</th>
+								<th colspan="1" class="_titulo-tabela">%</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for key, tr in post.get_field('tabela_niveis').body %}
+								<tr style="{% if key is even %}background-color:{{item.get_field('cor')}};{% endif %}">
+									{% for td in tr %}
+										<td>
+											{{ td.c }}
+										</td>
+									{% endfor %}
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					{% if post.get_field('tabela_sugestao') %}
+						<table class="Table _bordered">
+							<thead>
+								<tr>
+									<th colspan="10" class="_titulo-tabela">Sugestão de Uso*</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for key, tr in post.get_field('tabela_sugestao').body %}
+									<tr style="{% if key is even %}background-color:{{item.get_field('cor')}};{% endif %}">
+										{% for td in tr %}
+											<td>
+												{{ td.c }}
+											</td>
+										{% endfor %}
+									</tr>
+								{% endfor %}
+								<tr>
+									{% if post.get_terms.0.taxonomy == 'categorias-cat' %}
+										<td colspan="10" class="_titulo-tabela">*Os valores sugeridos acima são orientativos e devem ser adaptados ao porte, comportamento e nível de atividade do gato.</td>
+									{% else %}
+										<td colspan="10" class="_titulo-tabela">*Os valores sugeridos acima são orientativos e devem ser adaptados ao porte, comportamento e nível de atividade do cão.</td>
+									{% endif %}
+								</tr>
+							</tbody>
+						</table>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col _col-8 _button">
+				<a href="{{ item.get_field('arquivo_tabela_nutricional') }}" class="Button _tabela" download>Baixar a tabela completa</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="newsletter container">
+		<div class="Row _gutters">
+			<div class="col _col-6">
+				<div class="Sugestao _tac">
+					<h1>Dúvidas ou sugestões?</h1>
+					<a href="{{ site.url }}/contato }}" class="Button">Fale conosco</a>
+				</div>
+			</div>
+			<div class="col _col-6 _pt75">
+
+				{% if post.get_terms.0.taxonomy == 'categorias-cat' %}
+					<div class="cat-menu forms">
+						<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Cat Menu.</p>
+						{{ cat_menu }}
+					</div>
+				{% else %}
+					<div class="dog-menu forms">
+						<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Dog Menu.</p>
+						{{ dog_menu }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	
+	
+{% endblock %}

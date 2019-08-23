@@ -1,0 +1,65 @@
+.Chamada {
+	padding: 230px 0 100px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	.chamadas {
+		text-align: center;
+
+		h1 {
+			padding: 0 340px;
+			font-weight: 500;
+		}
+
+		p {
+			padding: 0 460px;
+		}
+	}
+
+	@include breakpoint(0, 1555px) {
+		padding: 100px 0;
+
+		.chamadas {
+
+			h1 {
+				padding: 0 200px;
+			}
+
+			p {
+				padding: 0 300px;
+			}
+		}
+	}
+
+	@include breakpoint(0, $lg) {
+		padding: 60px 0;
+
+		.chamadas {
+
+			h1 {
+				padding: 0 100px;
+			}
+
+			p {
+				padding: 0 200px;
+			}
+		}
+	}
+
+	@include breakpoint(0, $md) {
+		.chamadas {
+			padding: 0 60px;
+
+			h1, p {
+				padding: 0;
+			}
+		}
+	}
+
+	@include breakpoint(0, $sm) {
+		.chamadas {
+			padding: 0;
+		}
+	}
+}

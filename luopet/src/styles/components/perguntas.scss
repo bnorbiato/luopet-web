@@ -1,0 +1,65 @@
+.Perguntas {
+
+	.textos {
+		margin-top: 105px;
+		font-weight: 300;
+
+		h1, h2 {
+			margin-bottom: 10px;
+		}
+
+		.subtitulo {
+			margin-bottom: 105px;
+		}
+
+
+		.pergunta, .resposta {
+			line-height: 29px;
+		}
+	}
+
+	.imagens {
+		margin-top: 80px;
+		
+		.dog {
+			margin: 0 120px;
+		}
+	}
+}
+
+@include breakpoint(0, $md) {
+	.Perguntas {
+		.textos {
+			margin-top: 40px;
+
+			.subtitulo {
+				margin-bottom: 55px;
+			}
+		}
+	}
+}
+
+@include breakpoint(0, $sm) {
+	.Perguntas {
+		.textos {
+			text-align: left;
+			order: 2;
+
+			.subtitulo {
+				text-align: justify;
+			}
+		}
+		
+		.imagens {
+			margin-top: 50px;
+			order: 1;
+			text-align: center;
+
+			.dog, .cat {
+				display: inline-block;
+				margin: 0;
+				width: 35%;
+			}
+		}
+	}
+}

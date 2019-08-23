@@ -1,0 +1,175 @@
+.Downloads {
+
+	.arabesco {
+		margin-top: 125px;
+		height: 100%;
+		background-repeat: no-repeat;
+
+		.titulo {
+			text-align: center;
+
+			h1 {
+				margin-bottom: 20px;
+			}
+
+			p {
+				display: inline-block;
+				margin: 0 0 70px;
+				width: 970px;
+				max-width: 100%;
+				text-align: center;
+			}
+
+		}
+
+		.Row {
+			padding: 0 140px;
+		}
+
+		.icones {
+			a { 
+				display: block;
+				padding: 0 45px;
+				text-decoration: none; 
+				transition: 200ms;
+				
+				.imagem {
+					padding-top: 121%;
+					height: auto;
+					width: auto;
+					border: 3px solid #b49a5f;
+					background-size: 98%;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+
+				h1 {
+					margin-bottom: 5px;
+					font-weight: 500;
+					text-transform: uppercase;
+				}
+
+				p {
+				    font-size: 20px;
+				    color: #b49a5f;
+				    text-align: center;
+				}
+
+				&:hover {
+					opacity: .7;
+				}
+
+			}
+		}
+	}
+
+	&._ingrediente {
+		.arabesco {
+			.icones {
+				a { 
+					display: block;
+					padding: 20px;
+
+					.imagem {
+						background-position: center bottom;
+						background-size: contain;
+						background-repeat: no-repeat;
+						padding: 0;
+						margin-bottom: 10px;
+						transition: 200ms;
+
+						&:after {
+							content: '';
+							display: block;
+							padding-top: 90%;
+						}
+					}
+
+					&:hover {
+						.imagem {
+							transform: scale(1.1) rotate(5deg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include breakpoint(0, 1555px) {
+		.arabesco {
+			.Row {
+				padding: 0 40px;
+			}
+
+			.icones {
+				a { 
+					display: block;
+					padding: 0 30px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(0, $lg) {
+		.arabesco {
+			.Row {
+				padding: 0;
+			}
+
+			.icones {
+				a { 
+					display: block;
+					padding: 0 15px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(0, $md) {
+		.arabesco {
+			.icones {
+				a { 
+					display: block;
+					padding: 0 5px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(0, $sm) {
+		.arabesco {
+			margin-top: 60px;
+			
+			.Row {
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+
+			.icones {
+				width: 50%;
+				
+				a { 
+					display: block;
+					padding: 0 15px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(0, $xs) {
+		.arabesco {
+			.Row {
+				width: 288px;
+				margin: 0 auto;
+			}
+
+			.icones {
+				width: 100%;
+
+				a {
+					padding: 0 30px;
+				}
+			}
+		}
+	}
+}

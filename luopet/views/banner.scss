@@ -1,0 +1,17 @@
+.Banner {
+
+	.item {
+		height: 908px;
+		width: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: -2;
+
+		.infos-banner { 
+			h1 {
+				color: #5d4438;
+			}
+		}
+	}
+}

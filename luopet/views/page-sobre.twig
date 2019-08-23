@@ -1,0 +1,50 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+<div class="Sobre">
+	<div class="container">
+		<div class="textos">
+			<div class="wow fadeInUp">
+				<h1>{{ post.titulo_sobre }}</h1>
+				<p>{{ post.texto_sobre }}</p>
+			</div>
+			<img src="{{ theme.link }}/assets/images/ingredientes.png">
+		</div>
+	</div>
+
+	<div class="banner-dog wow fadeInUp" style="background-image: url({{ Image(post.banner_sobre).src }})">
+		<div class="container">
+			<h1>{{ post.titulo_banner }}</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="texto wow fadeInUp">
+			<p>{{ post.texto }}</p>
+		</div>
+	</div>
+
+	<div class="newsletter container">
+		<div class="Row _gutters">
+			<div class="col _col-6">
+				<div class="Sugestao _tac">
+					<h1>Dúvidas ou sugestões?</h1>
+					<a href="{{ site.url }}/contato }}" class="Button">Fale conosco</a>
+				</div>
+			</div>
+			<div class="col _col-6">
+				<div class="cat-menu forms">
+					<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Cat Menu.</p>
+					{{ cat_menu }}
+				</div>
+				<div class="dog-menu forms">
+					<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Dog Menu.</p>
+					{{ dog_menu }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,303 @@
+.Header {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	background-color: #fff;
+	z-index: 20;
+
+	.menuToggle {
+		display: none;
+		position: absolute;
+		top: 25px;
+		right: 0;
+		width: 40px;
+		height: 40px;
+		color: #5d4438;
+		font-size: 24px;
+		line-height: 30px;
+		text-align: center;
+		z-index: 15;
+
+		i {
+			position: absolute;
+		    right: 3px;
+		    top: 5px;
+		}
+	}
+
+	.logo {
+		display: inline-block;
+		position: relative;
+		margin-top: 70px;
+		z-index: 1;
+	}
+
+	.menu {
+	    position: absolute;
+	    top: 74px;
+	    padding-left: 230px;
+	    width: 100%;
+		color: #5d4438;
+
+		.links {
+			display: inline-block;
+
+			li {
+				position: relative;
+				display: inline-block;
+				padding: 0 22px;
+
+				a {
+					display: block;
+					color: #5d4438;
+					font-size: 16px;
+					text-decoration: none;
+
+					&:hover {
+						color: #c3ae7f;
+					}
+				}
+
+				&._active {
+					a {
+						color: #c3ae7f;
+					}
+				}
+
+				&.produtos {
+					padding-top: 5px;
+
+					&:hover {
+						background-color: #5d4438;
+
+						a {
+							color: #b49a5f;
+						}
+
+						.submenu {
+							display: block;
+							color: #c3ae7f;
+						}
+					}
+				}
+
+				.submenu {
+					display: none;
+					position: absolute;
+					left: 0;
+					padding-bottom: 10px;
+					width: 100%;
+					font-family: 'Gotham';
+					background-color: #5d4438;
+					text-align: center;
+
+					li {
+						display: block;
+						padding: 0;
+						
+						.titulo {
+							padding: 25px 0 5px;
+							color: #fff;
+							font-size: 16px;
+							font-weight: bold;
+
+							&:hover {
+								opacity: 1;
+							}
+						}
+
+						a {
+							padding: 0;
+							color: #c3ae7f;
+							font-size: 14px;
+
+							&:hover {
+								opacity: 0.8;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.redes-sociais {
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		top: 6px;
+		vertical-align: middle;
+
+		li {
+			display: inline-block;
+			margin-right: 5px;
+
+			&:last-child {
+				margin-right: 0; 
+			}
+
+			a {
+				display: inline-block;
+				position: relative;
+				width: 23px;
+				height: 23px;
+				color: #5d4438;
+				background-color: #fff;
+				border-radius: 50%;
+				font-size: 28px;
+				list-style: none;
+
+				i {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+
+				&:hover {
+					color: #b49a5f;
+				}
+			}
+		}
+	}
+
+	&._fixed {
+		position: fixed;
+
+		.logo {
+			margin: 10px 0;
+		}
+
+		.menu {
+			top: 16px;
+		}
+	}
+}
+
+@include breakpoint(0, 1555px) {
+	.Header {
+		.logo {
+			width: 160px;
+		}
+
+		.menu {
+			padding-left: 0;
+			top: 70px;
+			text-align: right;
+
+			.links {
+				li {
+					padding: 0 17px;
+
+					a {
+						font-size: 14px;
+					}
+
+					&:last-child {
+						padding-right: 0;
+					}
+
+					.submenu {
+						li {
+							.titulo {
+								font-size: 14px;
+							}
+
+							a {
+								font-size: 13px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.redes-sociais {
+			top: -40px;
+		}
+
+		&._fixed {
+			.redes-sociais {
+				display: none;
+			}
+		}
+	}
+}
+
+@include breakpoint(0, $lg) {
+	.Header {
+		position: fixed;
+
+		.menuToggle {
+			display: block;
+		}
+
+		.logo {
+			margin: 15px 0;
+		}
+
+		.menu {
+			position: fixed;
+			padding-top: 70px;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			background-color: #fff;
+			text-align: center;
+			transition: height 1000ms;
+			overflow: hidden;
+
+			.links {
+				display: none;
+
+				li {
+					display: block;
+					padding: 15px 0;
+
+					&.produtos {
+						padding: 15px 0;
+
+						&:hover {
+							.submenu {
+								max-height: 148px;
+								transition: max-height 0.25s ease-in;
+							}
+						}
+					}
+
+					.submenu {
+						display: block;
+						position: relative;
+						padding-bottom: 0;
+						max-height: 0;
+						overflow: hidden;
+						transition: max-height 0.15s ease-out;
+
+						li {
+							.titulo {
+								padding: 10px 0 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.redes-sociais {
+			display: none;
+			position: relative;
+			top: auto;
+		}
+
+		&._fixed {
+			.logo {
+				margin: 15px 0;
+			}
+
+			.menu {
+				top: 0;
+			}
+		}
+	}
+}

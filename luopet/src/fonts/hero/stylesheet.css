@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Bold.woff2') format('woff2'),
+        url('Hero-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Light.woff2') format('woff2'),
+        url('Hero-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Regular.woff2') format('woff2'),
+        url('Hero-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Light.woff2') format('woff2'),
+        url('Hero-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Bold.woff2') format('woff2'),
+        url('Hero-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('Hero-Regular.woff2') format('woff2'),
+        url('Hero-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

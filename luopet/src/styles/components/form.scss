@@ -1,0 +1,179 @@
+.Form {
+	._modal-form-success {
+		position: fixed;
+		top: 3%;
+		left: 3%;
+		width: 94%;
+		height: 94%;
+		border-radius: 0;
+		text-align: center;
+		z-index: 99999;
+		transition: 200ms;
+		visibility: visible;
+
+		.text {
+			@extend ._mid;
+			width: 100%;
+			left: 0;
+		}
+
+		.modal-close {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
+
+			&:before {
+				transform: rotate(45deg);
+			}
+
+			&:after {
+				transform: rotate(-45deg);
+			}
+
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 9px;
+				display: block;
+				height: 20px;
+				width: 1px;
+				background-color: #333;
+				opacity: 0.5;
+			}
+
+			&:hover {
+				&:before,
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.Message._error {
+		margin-bottom: 20px;
+		padding: 10px;
+		padding-right: 50px;
+		font-size: 18px;
+	}
+
+	input {
+		height: 50px;
+		font-size: 23px;
+		border-radius: 14px;
+	    border: 2px solid #cd8435;
+	}
+
+	textarea {
+		height: 150px;
+		border: 2px solid #b49a5f;
+	}
+
+	.form-item {
+		label {
+			display: none;
+		}
+	}
+
+	.Button {
+		&._loading:before {
+			content: '';
+			position: absolute;
+			left: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 26px;
+			height: 26px;
+			background-image: url(../images/ajax-loader.gif);
+			background-size: contain;
+		}
+	}
+
+	&#onde_encontrar {
+		.form-item {
+			input, select {
+				color: #5d4438;
+				font-size: 23px;
+				border: none;
+				border-radius: 0;
+				border-bottom: 2px solid #b49a5f;
+
+				&::placeholder {
+					color: #5d4438;
+					font-size: 23px;
+				  	opacity: 1; 
+				}
+			}
+
+			select {
+				background-image: url(../images/arrow-down.png);
+			}
+			
+			&._button {
+				width: 100%;
+				text-align: right;
+				margin-bottom: 0;
+
+				.Button {
+					min-width: 145px;
+				}
+			}
+		}
+	}
+
+	&#fale_conosco {
+
+		.form-item {
+
+			input, select {
+				color: #5d4438;
+				font-size: 23px;
+				border: none;
+				border-radius: 0;
+				border-bottom: 2px solid #b49a5f;
+
+				&::placeholder {
+					color: #5d4438;
+				  	opacity: 1; 
+				}
+			}
+
+			textarea {
+
+				&::placeholder {
+					color: #5d4438;
+				  	opacity: 1; 
+				}
+
+			}
+
+			.Button {
+				position: absolute;
+				right: 0;
+				min-width: 145px;
+			}
+
+			._checkbox {
+				display: block !important;
+
+				input {
+					width: 40px;
+					height: 40px;
+					border: 2px solid #b49a5f;
+					-webkit-appearance: none;
+				   	-moz-appearance:    none;
+				  	appearance:         none;
+
+				  	&:checked {
+					 	background-color: #b49a5f;
+					}
+				}
+			}
+		}
+	}
+}

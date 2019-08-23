@@ -1,0 +1,14 @@
+.Sugestao {
+	padding: 115px 0 90px;
+
+	h1 {
+		font-size: 47px;
+		font-weight: normal;
+	}
+}
+
+@include breakpoint(0, $md) {
+	.Sugestao {
+		padding: 50px 0 40px;
+	}
+}

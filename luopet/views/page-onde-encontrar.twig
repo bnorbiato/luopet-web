@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+<div class="Enderecos">
+	<div class="container">
+		<div class="Row">
+			<div class="col _col-6">
+				<div class="texto wow fadeInUp">
+					<h1>{{ post.texto }}</h1>
+				</div>
+			</div>
+			<div class="col _col-6"><p class="titulo wow fadeInDown">Preencha os campos abaixo e receba os pontos de venda no seu e-mail.</p>
+				{{ onde_encontrar }}
+			</div>
+		</div>
+	</div>
+
+	<div class="Sugestao _tac">
+		<div class="container">
+			<h1>Dúvidas ou sugestões?</h1>
+			<a href="{{ post.link_chamada }}" class="Button">Fale conosco</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

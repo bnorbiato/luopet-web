@@ -1,0 +1,34 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+<div class="Downloads">
+	<div class="arabesco" style="background-image: url({{ theme.link }}/assets/images/arabesco.png)">
+		<div class="container">
+			<div class="titulo wow fadeInDown">
+				<h1>{{ post.titulo }}</h1>
+				<p>{{ post.legenda }}</p>
+			</div>
+			<div class="Row _gutters">
+				{% for item in post.get_field('downloads')  %}
+					<div class="col _col-3 icones wow fadeInUp">
+						<a href="{{ item.arquivo }}" download>
+					    	<div class="imagem" style="background-image: url({{ Image(item.imagem).src }});"></div>
+							<h1 class="titulo">{{ item.titulo }}</h1>
+							<p class="legenda">{{ item.legenda }}</p>
+						</a>
+				    </div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="Sugestao _tac">
+		<div class="container">
+			<h1>Dúvidas ou sugestões?</h1>
+			<a href="{{ post.link_chamada }}" class="Button">Fale conosco</a>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

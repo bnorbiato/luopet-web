@@ -1,0 +1,96 @@
+.Banner {
+	.item {
+		height: 908px;
+		width: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+
+		.infos-banner { 
+			text-align: center;
+
+			h1 {
+    			padding: 90px 340px 90px;
+				font-weight: 300;
+			}
+		}
+	}
+
+	.owl-dots {
+		position: absolute;
+		width: 100%;
+		bottom: 20px;
+		z-index: 10;
+		text-align: center;
+
+		.owl-dot {
+			display: inline-block;
+			margin-right: 17px;
+			width: 15px;
+			height: 16px;
+			opacity: 0.6;
+			background-image: url(../images/dots.png);
+
+			&.active {
+				opacity: 1;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@include breakpoint(0, 1555px) {
+		.item {
+			height: 678px;
+
+			.infos-banner h1 {
+			    padding: 90px 240px;
+			}
+		}
+	}
+
+	@include breakpoint(0, $lg) {
+		.item {
+			height: 568px;
+
+			.infos-banner h1 {
+			    padding: 90px 130px;
+			}
+		}
+	}
+
+	@include breakpoint(0, $md) {
+		.item {
+			height: 468px;
+
+			.infos-banner h1 {
+			    padding: 60px 0px;
+			    font-size: 50px;
+			}
+		}
+	}
+
+	@include breakpoint(0, $sm) {
+		.item {
+			height: 362px;
+
+			.infos-banner h1 {
+			    padding: 30px 0px 0px;
+			    margin-bottom: 20px;
+			    font-size: 40px;
+			}
+		}
+	}
+
+	@include breakpoint(0, $xs) {
+		.item {
+			height: 300px;
+
+			.infos-banner h1 {
+			    font-size: 30px;
+			}
+		}
+	}
+}

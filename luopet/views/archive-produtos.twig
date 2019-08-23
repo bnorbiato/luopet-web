@@ -1,0 +1,78 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+<div class="Produtos">
+	<div class="bg-titulo wow fadeIn" style="background-image: url({{ theme.link }}/assets/images/background_title.png)">
+		<div class="container">
+			<img src="{{ Image(categoria.0.imagem_categoria).src }}" class="wow swing">
+			{% if categoria.0.taxonomy == 'categorias-cat' %}
+				<h1 class="wow fadeIn">Alegria para o paladar dos felinos.</h1>
+			{% else %}
+				<h1 class="wow fadeIn">Selecionado, assado e preparado com muito carinho.</h1>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="_padded container">
+		{% for item in posts %}
+			<div class="produto">
+				<h2 class="wow fadeIn">{{ item.title }}</h2>
+				<div class="texto wow fadeIn">{{ item.texto_produto }}</div>
+
+				<div class="Row _gutters wow fadeIn">
+					<div class="col _col-6 col1">
+						<div class="infos">
+							{% for com in item.get_field('composicao') %}
+								<div class="composicao wow fadeIn">
+									<div class="item{% if com.texto %} _has_text{% endif %}">
+										<h3>{{ com.componente }}</h3>
+									</div>
+
+									{% if com.texto %}
+										<p class="descricao _mb0">{{ com.texto }}</p>
+									{% endif %}
+								</div>
+							{% endfor %}
+
+							<a href="{{ item.link }}" class="Button tabela">Saiba mais sobre o produto</a>
+						</div>
+					</div>
+
+					<div class="col _col-6 imagem col2 wow fadeIn">
+						<a href="{{ item.link }}">
+							<img class="imagem_produto" src="{{ Image(item.imagem).src }}">
+						</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="newsletter container">
+		<div class="Row _gutters">
+			<div class="col _col-6">
+				<div class="Sugestao _tac">
+					<h1>Dúvidas ou sugestões?</h1>
+					<a href="{{ site.url }}/contato }}" class="Button">Fale conosco</a>
+				</div>
+			</div>
+			<div class="col _col-6 _pt75">
+
+				{% if categoria.0.taxonomy == 'categorias-cat' %}
+					<div class="cat-menu forms">
+						<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Cat Menu.</p>
+						{{ cat_menu }}
+					</div>
+				{% else %}
+					<div class="dog-menu forms">
+						<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Dog Menu.</p>
+						{{ dog_menu }}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

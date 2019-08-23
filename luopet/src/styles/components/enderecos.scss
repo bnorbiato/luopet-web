@@ -1,0 +1,62 @@
+.Enderecos {
+
+	.Row {
+		margin-top: 85px;
+
+		h1 {
+			margin-top: 180px;
+			width: 715px;
+			font-size: 53px;
+			font-weight: 500;
+		}
+	}
+}
+
+@include breakpoint(0, 1550px) {
+	.Enderecos {
+		.Row {
+			h1 {
+				margin-top: 160px;
+				width: 510px;
+				font-size: 40px;
+			}
+		}
+	}
+}
+
+@include breakpoint(0, $lg) {
+	.Enderecos {
+		.Row {
+			h1 {
+				margin-top: 80px;
+				width: 400px;
+				font-size: 37px;
+			}
+		}
+	}
+}
+
+@include breakpoint(0, $md) {
+	.Enderecos {
+		.Row {
+			h1 {
+				width: 340px;
+				font-size: 32px;
+			}
+		}
+	}
+}
+
+@include breakpoint(0, $sm) {
+	.Enderecos {
+		.Row {
+			margin-top: 40px;
+			
+			h1 {
+				margin-top: 0;
+				width: 100%;
+				text-align: justify;
+			}
+		}
+	}
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+
+<html lang="pt-BR">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" 			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" 	content="telephone=no">
+	<meta property="og:type"        content="website"/>
+	<meta property="og:title"       content="{{ wp_title ? wp_title ~ ' - ' }}{{ site.name }}"/>
+	<meta property="og:description" content="{% if post.get_field('meta_description') %}{{ post.get_field('meta_description') }}{% else %}{{ option('meta_description') }}{% endif %}" />
+	<meta property="og:image"       content="{% if post.get_field('imagem') %}{{ Image(post.get_field('imagem')) }}{% else %}{{ option('meta_imagem') }}{% endif %}" />
+	<meta name="description" 		content="{% if post.get_field('meta_description') %}{{ post.get_field('meta_description') }}{% else %}{{ option('meta_description') }}{% endif %}" />
+
+	{{ wp_head }}
+
+	<title>{{ wp_title ? wp_title ~ ' - ' }}{{ site.name }}</title>
+
+	<link rel="shortcut icon" href="{{ option('favicon') }}">
+
+	<style>
+		.wow {visibility: hidden;}
+	</style>
+
+	{# {% block _inline_css %}
+		{% if fn('is_404') %}
+		    <style>
+		        {{ source ('/assets/critical/404_critical.min.css', ignore_missing = true) }}
+		    </style>
+		{% else %}
+		    <style>
+		        {{ source ('/assets/critical/' ~ fn('get_page_class') ~ '_critical.min.css', ignore_missing = true) }}
+		    </style>
+		{% endif %}
+	{% endblock %} #}
+
+<style type="text/css">@keyframes lds-spin {0% {  opacity: 1;  -webkit-transform: scale(1.1, 1.1);  transform: scale(1.1, 1.1);}100% {  opacity: 0;  -webkit-transform: scale(1, 1);  transform: scale(1, 1);}}@-webkit-keyframes lds-spin {0% {  opacity: 1;  -webkit-transform: scale(1.1, 1.1);  transform: scale(1.1, 1.1);}100% {  opacity: 0;  -webkit-transform: scale(1, 1);  transform: scale(1, 1);}}.lds-spin {position: relative;}.lds-spin div > div {position: absolute;width: 40px;height: 40px;border-radius: 50%;background: #cd8435;-webkit-animation: lds-spin 1s linear infinite;animation: lds-spin 1s linear infinite;}.lds-spin div:nth-child(1) > div {left: 140px;top: 80px;-webkit-animation-delay: -0.875s;animation-delay: -0.875s;}.lds-spin > div:nth-child(1) {-webkit-transform: rotate(0deg);transform: rotate(0deg);-webkit-transform-origin: 160px 100px;transform-origin: 160px 100px;}.lds-spin div:nth-child(2) > div {left: 122.42640685999999px;top: 122.42640685999999px;-webkit-animation-delay: -0.75s;animation-delay: -0.75s;}.lds-spin > div:nth-child(2) {-webkit-transform: rotate(45deg);transform: rotate(45deg);-webkit-transform-origin: 142.42640686px 142.42640686px;transform-origin: 142.42640686px 142.42640686px;}.lds-spin div:nth-child(3) > div {left: 80px;top: 140px;-webkit-animation-delay: -0.625s;animation-delay: -0.625s;}.lds-spin > div:nth-child(3) {-webkit-transform: rotate(90deg);transform: rotate(90deg);-webkit-transform-origin: 100px 160px;transform-origin: 100px 160px;}.lds-spin div:nth-child(4) > div {left: 37.57359314px;top: 122.42640685999999px;-webkit-animation-delay: -0.5s;animation-delay: -0.5s;}.lds-spin > div:nth-child(4) {-webkit-transform: rotate(135deg);transform: rotate(135deg);-webkit-transform-origin: 57.57359314px 142.42640686px;transform-origin: 57.57359314px 142.42640686px;}.lds-spin div:nth-child(5) > div {left: 20px;top: 80px;-webkit-animation-delay: -0.375s;animation-delay: -0.375s;}.lds-spin > div:nth-child(5) {-webkit-transform: rotate(180deg);transform: rotate(180deg);-webkit-transform-origin: 40px 100px;transform-origin: 40px 100px;}.lds-spin div:nth-child(6) > div {left: 37.57359314px;top: 37.57359314px;-webkit-animation-delay: -0.25s;animation-delay: -0.25s;}.lds-spin > div:nth-child(6) {-webkit-transform: rotate(225deg);transform: rotate(225deg);-webkit-transform-origin: 57.57359314px 57.57359314px;transform-origin: 57.57359314px 57.57359314px;}.lds-spin div:nth-child(7) > div {left: 80px;top: 20px;-webkit-animation-delay: -0.125s;animation-delay: -0.125s;}.lds-spin > div:nth-child(7) {-webkit-transform: rotate(270deg);transform: rotate(270deg);-webkit-transform-origin: 100px 40px;transform-origin: 100px 40px;}.lds-spin div:nth-child(8) > div {left: 122.42640685999999px;top: 37.57359314px;-webkit-animation-delay: 0s;animation-delay: 0s;}.lds-spin > div:nth-child(8) {-webkit-transform: rotate(315deg);transform: rotate(315deg);-webkit-transform-origin: 142.42640686px 57.57359314px;transform-origin: 142.42640686px 57.57359314px;}.lds-spin div:nth-child(9) > div {left: 140px;top: 80px;-webkit-animation-delay: 0.125s;animation-delay: 0.125s;}.lds-spin > div:nth-child(9) {-webkit-transform: rotate(360deg);transform: rotate(360deg);-webkit-transform-origin: 160px 100px;transform-origin: 160px 100px;}.lds-spin {top: 50%;left: 50%;margin: -35px;width: 70px !important;height: 70px !important;-webkit-transform: translate(-35px, -35px) scale(0.35) translate(35px, 35px);transform: translate(-35px, -35px) scale(0.35) translate(35px, 35px);}.loading {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #fff;z-index: 1000;transition: 500ms;visibility: visible;}.loaded .loading {display: none;opacity: 0;visibility: hidden;}
+
+</style>
+
+  <link rel="stylesheet" type="text/css" href="{{ theme.link }}/assets/css/app.css">
+
+</head>
+
+<body class="{{ get_page_class() }} {% if get_page_class() != 'home' %} _padding{% endif %}">
+  <div class="loading"><div class="lds-spin" style="width:100%;height:100%"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>
+	<header class="Header{% if get_page_class() != 'home' %} _page{% endif %}" data-component="fixed">
+		<div class="container">
+			<a href="{{ site.url}}" class="logo">
+				<img src="{{ option('logo') }}" alt="icon-menu">
+			</a>
+
+			<nav class="menu">
+				<ul class="links">
+					<li class="{{ is_active('home') }}"><a href="{{ site.url }}">Home</a></li>
+					<li class="{{ is_active('sobre') }}"><a href="{{ site.url }}/sobre" class="scroll" data-target="#sobre">Quem somos</a></li>
+					<li class="{% if categoria %}_active{% endif %} produtos">
+						<a class="scroll" data-target="produtos">Produtos</a>
+						<ul class="submenu">
+							<li><a class="titulo">Dog Menu</a></li>
+							{% for item in categorias if item.name != 'Sem categoria' and item.taxonomy == 'categorias-dog' %}
+								<li><a href="{{ item.link }}">{{ item.name }}</a></li>
+							{% endfor %}
+						
+							<li><a class="titulo">Cat Menu</a></li>
+							{% for item in categorias if item.name != 'Sem categoria' and item.taxonomy == 'categorias-cat' %}
+								<li><a href="{{ item.link }}">{{ item.name }}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+					<li class="{{ is_active('promocoes') }}"><a href="{{ site.url }}/promocoes" class="scroll" data-target="promocoes">Promoções</a></li>
+					<li class="{{ is_active('perguntas-frequentes') }}"><a href="{{ site.url }}/perguntas" class="scroll" data-target="perguntas">Perguntas Frequentes</a></li>
+					<li class="{{ is_active('onde-encontrar') }}"><a href="{{ site.url }}/onde-encontrar" class="scroll" data-target="enderecos">Onde encontrar</a></li>
+					<li class="{{ is_active('downloads') }}"><a href="{{ site.url }}/downloads" class="scroll" data-target="downloads">Downloads</a></li>
+					<li class="{{ is_active('contato') }}"><a href="{{ site.url }}/contato" class="scroll" data-target="contato">Fale conosco</a></li>
+				</ul>
+
+				<ul class="redes-sociais">
+		            {% for item in option('redes_sociais') %}
+		                {% if item.nome == 'facebook' %}
+		                    <li><a href="{{ item.link }}" target="_blank"><i class="icon-facebook"></i></a></li>
+	                    {% elseif item.nome == 'instagram' %}
+	                    	<li><a href="{{ item.link }}" target="_blank"><i class="icon-instagram"></i></a></li>
+		                {% elseif item.nome == 'linkedin' %}
+		                	<li><a href="{{ item.link }}" target="_blank"><i class="icon-linkedin-squared"></i></a></li>
+		                {% endif %}
+		            {% endfor %}
+		        </ul>
+			</nav>
+
+			<a href="#" class="menuToggle" data-component="toggle" data-type="menu" data-target=".menu"><i class="icon-menu"></i></a>
+		</div>
+	</header>

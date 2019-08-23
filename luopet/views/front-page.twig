@@ -1,0 +1,103 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+<div class="Banner">
+	<div data-component="banner">
+		{% for item in post.get_field('banners') %}
+			<div class="item" style="background-image: url({{ Image(item.imagem).src }})">
+				<div class="container">
+					<div class="infos-banner">
+						<h1>{{ item.titulo }}</h1>
+						{% if item.link %}
+						<a href="{{ item.link }}" class="Button">Saiba mais</a>
+					{% endif %}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="Chamada" style="background-image: url({{ Image(post.imagem_chamada).src }})">
+	<div class="container">
+		<div class="chamadas wow fadeIn">
+			<h1>{{ post.titulo_chamada }}</h1>
+			<p>{{ post.texto_chamada }}</p>
+			<a href="{{ post.link_chamada }}" class="Button">Saiba mais</a>
+		</div>
+	</div>
+</div>
+
+<div class="Ingredientes" style="background-image: url({{ post.get_field('imagem_fundo') }});">
+	<div class="container">
+		<div class="animacao">
+			<div class="texto wow fadeIn">
+				<h2 class="titulo _normal">{{ post.get_field('titulo_ingredientes') }}</h2>
+				<p>{{ post.get_field('texto_ingredientes') }}</p>
+			</div>
+			<div class="itens">
+				{% for key,item in ingredientes %}
+				<div class="item" data-target="#item{{key}}">
+					<img src="{{ item.get_field('imagem') }}">
+				</div>
+				{% endfor %}
+			</div>
+			<div class="blocos">
+				{% for key,item in ingredientes %}
+				<div class="bloco" id="item{{key}}">
+					<h3 class="top">{{ item.title }}</h3>
+					<p>{{ item.get_field('descricao') }}</p>
+					<a href="{{ item.link }}" class="Button">Produtos com esse ingrediente</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="Video">
+	<div class="container">
+		<div class="embed">
+			{{ fn('wp_oembed_get', post.video_home) }}
+		</div>
+	</div>
+</div>
+
+<div class="Instagram">
+	<div class="container">
+		<div class="infos-instagram wow fadeInUp">
+			<div class="textos">
+				<h2>Estamos também no</h2>
+				<h1>Instagram</h1>
+			</div>
+			{% for item in option('redes_sociais') %}
+		        {% if item.nome == 'instagram' %}
+                	<a href="{{ item.link }}" target="_blank"><img src="{{ theme.link }}/assets/images/ig.png"></a>
+                {% endif %}
+            {% endfor %}
+		</div>
+	</div>
+
+	<div class="imagens">
+		<a href="https://www.instagram.com/luopet_brasil/?hl=pt-br" target="_blank">
+			{% for item in instagram %}
+				<div class="imagem" style="background-image: url({{ item }})"></div>
+			{% endfor %}
+		</a>
+	</div>
+
+	<!-- SnapWidget -->
+	{#<script src="https://snapwidget.com/js/snapwidget.js"></script>
+	<iframe src="https://snapwidget.com/embed/689605" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>#}
+</div>
+
+<div class="Sugestao _tac">
+	<div class="container">
+		<h1>Dúvidas ou sugestões?</h1>
+		<a href="{{ site.url }}/contato }}" class="Button">Fale conosco</a>
+	</div>
+</div>
+
+
+{% endblock %}

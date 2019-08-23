@@ -1,0 +1,58 @@
+<div class="Footer">
+    <div class="container">
+        <a href="{{ site.url}}" class="logo">
+            <img src="{{ option('logo') }}" alt="icon-menu">
+        </a>
+        <div class="infos-footer">
+            <div class="nome">
+                <p>LUOPET Indústria e Comércio Ltda.</p>
+            </div>
+            <div class="telefone"> 
+                <p>{{ option('telefones').0.telefone }}</p>
+            </div>
+            <div class="email">
+                <a href="mailto:{{ option('email') }}"><p>{{ option('email') }}</p></a>
+            </div>
+        </div>
+        <div class="icone-kife">
+            <a href="https://kife.com.br/" target="_blank"><img src="{{ theme.link }}/assets/images/logo-kife.png"></a>
+        </div>
+     </div>
+</div>
+
+    <script>
+        var siteurl = "{{ site.url }}";
+    </script>
+
+	<script src="{{ theme.link }}/assets/js/app.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+	<script>
+    	// Web fonts
+        WebFontConfig = {
+            google: {
+              families: ['Open+Sans:400,700']
+            },
+            custom: {
+                families: ['fontello', 'Gotham', 'Hero'],
+                urls: ['{{ theme.link }}/assets/fonts/fontello/css/fontello.css', '{{ theme.link }}/assets/fonts/gotham/stylesheet.css', '{{ theme.link }}/assets/fonts/hero/stylesheet.css']
+            }
+        };
+
+       (function() {
+            var wf = document.createElement('script');
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+
+    </script>
+
+	{# inserindo script mapa #}
+	{{ fn('get_option_mapa') }}
+    
+	{{ wp_footer }}
+</body>
+</html>

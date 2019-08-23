@@ -1,0 +1,72 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+
+
+<div class="Promocoes">
+	<div class="Row top">
+		<div class="col _col-7 wow fadeInLeft" data-wow-duration="2.5s">
+			<img src="{{ theme.link }}/assets/images/bluebg.png">
+			{# <h1>Seu pet nas redes sociais!</h1> #}
+		</div>
+		<div class="col _col-5 wow fadeInRight" data-wow-duration="2.5s">
+			<p>{{ post.texto_promo }}</p>
+		</div>
+	</div>
+
+	<!-- LightWidget WIDGET -->
+	{#<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe class="imagens" src="//lightwidget.com/widgets/6e91cd5596445585abe602b6f53ef309.html" scrolling="yes" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>#}
+
+	<div class="imagens">
+		<a href="https://www.instagram.com/explore/tags/luopetbrasil/" target="_blank">
+			<div class="Row">
+				{% for item in instagram_images %}
+					<div class="imagem col _col-4" style="background-image: url({{ item }})"></div>
+				{% endfor %}
+			</div>
+		</a>
+	</div>
+
+
+	<div class="container">
+		<div class="participe _tac">
+			<a href="https://www.instagram.com/explore/tags/luopetbrasil/" class="Button promo _tac" target="_blank">Participe!</a>
+			<ul class="redes-sociais">
+		 		{% for item in option('redes_sociais') %}
+	                {% if item.nome == 'facebook' %}
+		                    <li><a href="{{ item.link }}" target="_blank"><i class="icon-facebook"></i></a></li>
+	                    {% elseif item.nome == 'instagram' %}
+	                    	<li><a href="{{ item.link }}" target="_blank"><i class="icon-instagram"></i></a></li>
+		                {% else %}
+		            {% endif %}
+	            {% endfor %}
+			</ul>
+		</div>
+	</div>
+
+
+
+	<div class="newsletter container">
+		<div class="Row _gutters">
+			<div class="col _col-6">
+				<div class="Sugestao _tac">
+					<h1>Dúvidas ou sugestões?</h1>
+					<a href="{{ post.link_chamada }}" class="Button">Fale conosco</a>
+				</div>
+			</div>
+			<div class="col _col-6">
+				<div class="cat-menu forms">
+					<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Cat Menu.</p>
+					{{ cat_menu }}
+				</div>
+				<div class="dog-menu forms">
+					<p class="title _tac">Assine nossa newsletter para receber todas as novidades da linha Dog Menu.</p>
+					{{ dog_menu }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
